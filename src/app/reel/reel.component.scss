@@ -1,0 +1,92 @@
+@import '../vars.scss';
+
+$x: $reel-height/2;
+$margin: 10px;
+
+.cherry {
+    display:block;
+    margin:0;
+    padding: 0;
+    width: $x;
+    height: $x
+}
+
+.reel {
+    height: $reel-height + 2*$margin;
+    width: $reel-width + 2*$margin;
+    border: 10px solid black;
+    border-radius: 10px;
+}
+
+.container {
+    height: $reel-height;
+    width: $reel-width;
+    overflow: hidden;
+    margin: $margin;
+}
+
+.wrapper {
+    position: relative;
+    height: $reel-height;
+    width: $reel-width;
+}
+
+.select1 {
+    top: -$x/2;
+    transition: top 0.1s;
+}
+
+.select2 {
+    top: -$x;
+    transition: top 0.1s;
+}
+
+.select3 {
+    top: -$x/2 - $x;
+    transition: top 0.1s;
+}
+
+.select4 {
+    top: -2*$x;
+    transition: top 0.1s;
+}
+
+.select5 {
+    top: -$x/2 - 2*$x;
+    transition: top 0.1s;
+}
+
+.select6 {
+    top: -3*$x;
+    transition: top 0.1s;
+}
+
+.select7 {
+    top: -$x/2 - 3*$x;
+    transition: top 0.1s;
+}
+
+.select8 {
+    top: -4*$x;
+    transition: top 0.1s;
+}
+
+.select9 {
+    top: -$x/2 - 4*$x;
+    transition: top 0.1s;
+}
+
+.select10 {
+    top: -5*$x;
+    transition: top 0.1s;
+}
+
+.rotating {
+    //top: -$x;
+    animation: rotater 0.5s linear infinite;
+}
+
+@keyframes rotater {
+    from { top: -$x; }
+    to { top:-5*$x - $x/2; }
+}

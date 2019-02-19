@@ -1,0 +1,96 @@
+<h1>
+  Slot machine
+</h1>
+<div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="gappx">
+<div class="all-reels" fxFlex="none">
+  <div class="reel">
+      <app-slotb-reel [selected]="reel[0]" [rotate]="rotateArr[0]"></app-slotb-reel>
+  </div>
+  <div class="reel">
+      <app-slotb-reel [selected]="reel[1]" [rotate]="rotateArr[1]"></app-slotb-reel>
+  </div>
+  <div class="reel">
+      <app-slotb-reel [selected]="reel[2]" [rotate]="rotateArr[2]"></app-slotb-reel>
+  </div>
+</div>
+<div fxFlex="*" fxLayout="row" fxLayoutAlign="center center" fxFlexAlign="center">
+  <div fxFlex="none">
+    <button mat-raised-button color="accent" type="submit" class="play" (click)="spin()" [disabled]="_disabled">spin</button>
+  </div>
+</div>
+<div class="win-line" [ngClass]="win">
+    <div class="top"></div>
+    <div class="center"></div>
+    <div class="bottom"></div>
+</div>
+<div class="control" fxFlex="400px;">
+  <div class="debug">
+    <mat-slide-toggle [checked]="isManual"  [disabled]="_disabled" (change)="setManual($event)">Manual</mat-slide-toggle>
+    <h2>Reel 1</h2>
+    <mat-form-field>
+      <mat-select  [(value)]="arrSel[0]" [disabled]="_disabled || !isManual">
+        <mat-option value="none">none</mat-option>
+        <mat-option *ngFor="let a of arr" [value]="a">
+          {{a}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>    
+    <mat-form-field>
+      <mat-select  [(value)]="posSel[0]" [disabled]="_disabled || !isManual" >
+          <mat-option value="none">none</mat-option>
+          <mat-option *ngFor="let p of pos" [value]="p">
+          {{p}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <h2>Reel 2</h2>
+    <mat-form-field>
+      <mat-select  [(value)]="arrSel[1]" [disabled]="_disabled || !isManual" >
+          <mat-option value="none">none</mat-option>
+          <mat-option *ngFor="let a of arr" [value]="a">
+            {{a}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>    
+    <mat-form-field>
+      <mat-select  [(value)]="posSel[1]" [disabled]="_disabled || !isManual" >
+          <mat-option value="none">none</mat-option>
+          <mat-option *ngFor="let p of pos" [value]="p">
+            {{p}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <h2>Reel 3</h2>
+    <mat-form-field>
+      <mat-select  [(value)]="arrSel[2]" [disabled]="_disabled || !isManual" >
+          <mat-option value="none">none</mat-option>
+          <mat-option *ngFor="let a of arr" [value]="a">
+          {{a}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>    
+    <mat-form-field>
+      <mat-select  [(value)]="posSel[2]" [disabled]="_disabled || !isManual" >
+          <mat-option value="none">none</mat-option>
+          <mat-option *ngFor="let p of pos" [value]="p">
+          {{p}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+</div>
+<div fxLayout="row" fxLayoutAlign="start start">
+    <div class="balance" fxFlex="*">
+        <h2>Balance</h2>
+        <mat-form-field>
+          <input matInput placeholder="Balance" [value]="balance" type="number" max="5000" min="0">
+        </mat-form-field>
+    </div>  
+    <div class="payout" fxFlex="400px" *ngIf="payout">
+      <h2>Payout</h2>
+        <p *ngFor="let pr of payout; let first=first" [ngClass]="{first:first}">{{pr}}</p>
+    </div>  
+</div>
+
+  

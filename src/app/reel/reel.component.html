@@ -1,0 +1,15 @@
+<div class="reel">
+  <div class="container">
+  <div class="wrapper" [ngClass]="cherryChosen">
+    <div class="cherry">
+      <app-slotb-cherry [img]="arr[arr.length - 1]"></app-slotb-cherry>
+    </div>
+    <div class="cherry" *ngFor="let pk of arr">
+      <app-slotb-cherry [img]="pk"></app-slotb-cherry>
+    </div>
+    <div class="cherry">
+      <app-slotb-cherry [img]="arr[0]"></app-slotb-cherry>
+    </div>
+  </div>
+  </div>
+</div>

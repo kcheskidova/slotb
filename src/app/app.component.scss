@@ -1,0 +1,56 @@
+@import 'vars.scss';
+
+.reel {
+    display: inline-block;
+}
+
+.win-line {
+    position: absolute;
+    top: 100px;
+    left: 70px;
+    &.top {
+        .top{
+            visibility: visible;
+        }
+    }
+    &.center {
+        .center{
+            visibility: visible;
+        }
+    }
+    &.bottom {
+        .bottom{
+            visibility: visible;
+        }
+    }
+    div {
+        display: block;
+        width: 3*$reel-width;
+        height: 10px;
+        background-color: rgba(red, 0.7);
+        margin-top: ($reel-height/2)/2;
+        visibility: hidden;
+    }
+}
+
+.payout {
+    max-height: 300px;
+    overflow-y: scroll;
+    p.first{
+        animation: blinker 0.5s linear infinite;
+    }
+}
+
+@keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+}
+
+.play {
+    font-size: 40px;
+    height: 100px;
+    width: 200px;
+    text-transform: uppercase;
+    font-family: Coiny;
+}

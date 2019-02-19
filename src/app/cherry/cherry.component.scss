@@ -1,0 +1,17 @@
+@import '../vars.scss';
+
+$size: $reel-width;
+
+.cherry {
+    display: inline-block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    height: $size;
+    width: $size;
+    img {
+        object-fit: contain;
+        height: $size;
+        width: $size;
+    }
+}
